@@ -4,7 +4,7 @@ import { HiMiniChartBar } from "react-icons/hi2";
 const Header = () => {
   return (
     <>
-      <div className="flex justify-between m-5">
+      <div className="flex justify-between m-5 max-w-7xl mx-auto">
         <div className="flex items-center">
           <HiMiniChartBar className="text-2xl mr-2 text-[rgba(80,70,229,255)]" />
           <h1 className="font-bold">Trading Studio</h1>
