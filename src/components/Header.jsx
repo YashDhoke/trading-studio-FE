@@ -23,9 +23,11 @@ const Header = () => {
 
           <h2>Contact Us</h2>
           <h2>FAQ</h2>
-          <button className="bg-[rgba(80,70,229,255)] text-white rounded-md px-4 py-2">
-            Login
-          </button>
+          <NavLink to="/strategy">
+            <button className="bg-[rgba(80,70,229,255)] text-white rounded-md px-4 py-2">
+              Login
+            </button>
+          </NavLink>
         </div>
       </div>
       <div className="absolute left-0 w-full h-[2px] bg-gray-100 shadow-2xl"></div>
