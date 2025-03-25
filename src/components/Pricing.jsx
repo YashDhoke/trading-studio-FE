@@ -60,19 +60,19 @@ const Pricing = () => {
 
   return (
     <>
-      <div className="flex justify-center max-w-6xl mx-auto mt-10 ">
+      <div className="flex justify-center max-w-6xl mx-auto mt-10 px-4">
         <div className="flex flex-col items-center">
           <h1 className="text-4xl font-bold">Simple, transparent pricing</h1>
-          <p className="text-[rgba(75,85,99,255)] mt-3">
+          <p className="text-[rgba(75,85,99,255)] mt-3 text-center">
             Choose the perfect plan for your needs
           </p>
         </div>
       </div>
-      <div className="flex justify-center gap-10 mt-10 relative">
+      <div className="flex flex-wrap justify-center gap-6 mt-10">
         {pricingPlans.map((item, index) => (
           <div
             key={index}
-            className={`relative rounded-lg p-4 shadow-lg flex flex-col items-center w-70 h-110 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl 
+            className={`relative rounded-lg p-6 shadow-lg flex flex-col items-center w-full sm:w-72 md:w-80 lg:w-96 h-110 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl 
       ${item.title === "Pro" ? "border-2 border-[rgba(80,70,229,255)]" : ""}`}
           >
             {item.title === "Pro" && (
@@ -88,7 +88,7 @@ const Pricing = () => {
                 <p className="mt-4">/{item.period}</p>
               )}
             </div>
-            <p className="text-gray-500 mt-2 font-semibold">
+            <p className="text-gray-500 mt-2 font-semibold text-center">
               {item.description}
             </p>
             <ul className="mt-2 space-y-1">
