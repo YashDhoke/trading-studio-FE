@@ -138,123 +138,133 @@ const CreateStrategy = () => {
   };
 
   return (
-    <div className="flex shadow-lg max-w-4xl mx-auto mt-40 flex-col p-5">
-      <h1 className="text-xl font-semibold">Strategy Builder</h1>
-      <input
-        type="text"
-        className="border border-gray-300 mt-2 rounded-md p-2"
-        placeholder="New Strategy"
-        value={strategyName}
-        onChange={(e) => handleInputChange("strategyName", e.target.value)}
-      />
-      {errors.strategyName && (
-        <p className="text-red-500 text-sm mt-2">{errors.strategyName}</p>
-      )}
-
-      <div
-        className="bg-[rgba(249,250,251,255)] mt-5 rounded-md p-3"
-        style={{ minHeight: "100px" }}
-      >
-        <h2 className="font-semibold">Buy Trigger Conditions</h2>
-        <div className="flex items-center mt-3">
-          <FaPlus
-            className="text-xs text-[rgba(37,99,235,255)] mr-2 cursor-pointer"
-            onClick={() => setIsAddingBuyCondition(true)}
-          />
-          <p className="text-[rgba(37,99,235,255)] cursor-pointer">
-            Add Buy Condition
-          </p>
-        </div>
-
-        {isAddingBuyCondition && (
-          <div className="mt-3 flex items-center">
-            <input
-              type="text"
-              className="border border-gray-300 rounded-md p-2 mr-2"
-              placeholder="Enter Buy Condition"
-              value={newBuyCondition}
-              onChange={(e) =>
-                handleInputChange("newBuyCondition", e.target.value)
-              }
-            />
-            <button
-              className="bg-[rgba(37,99,235,255)] text-white rounded-md px-3 py-1"
-              onClick={handleAddBuyCondition}
-            >
-              Add
-            </button>
-          </div>
-        )}
-        {errors.buyCondition && (
-          <p className="text-red-500 text-sm mt-2">{errors.buyCondition}</p>
-        )}
-
-        <ul>
-          {buyConditions.map((condition, index) => (
-            <li key={index} className="mt-2">
-              {condition}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div
-        className="bg-[rgba(249,250,251,255)] mt-5 rounded-md p-3"
-        style={{ minHeight: "100px" }}
-      >
-        <h2 className="font-semibold">Sell Trigger Conditions</h2>
-        <div className="flex items-center mt-3">
-          <FaPlus
-            className="text-xs text-[rgba(37,99,235,255)] mr-2 cursor-pointer"
-            onClick={() => setIsAddingSellCondition(true)}
-          />
-          <p className="text-[rgba(37,99,235,255)] cursor-pointer">
-            Add Sell Condition
-          </p>
-        </div>
-
-        {isAddingSellCondition && (
-          <div className="mt-3 flex items-center">
-            <input
-              type="text"
-              className="border border-gray-300 rounded-md p-2 mr-2"
-              placeholder="Enter Sell Condition"
-              value={newSellCondition}
-              onChange={(e) =>
-                handleInputChange("newSellCondition", e.target.value)
-              }
-            />
-            <button
-              className="bg-[rgba(37,99,235,255)] text-white rounded-md px-3 py-1"
-              onClick={handleAddSellCondition}
-            >
-              Add
-            </button>
-          </div>
-        )}
-        {errors.sellCondition && (
-          <p className="text-red-500 text-sm mt-2">{errors.sellCondition}</p>
-        )}
-
-        <ul>
-          {sellConditions.map((condition, index) => (
-            <li key={index} className="mt-2">
-              {condition}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="flex justify-end">
+    <>
+      <div className="flex justify-end p-8">
         <button
-          className="bg-[rgba(37,99,235,255)] rounded-md mt-4 h-10 p-3 text-white flex items-center"
-          onClick={handleSaveStrategy}
+          className="flex bg-[rgba(37,99,235,255)] text-white rounded-md p-1 w-30 items-center justify-center"
+          onClick={() => navigate("/saved-strategies")}
         >
-          <LuSave className="mr-2" />
-          Save Strategy
+          My Strategies
         </button>
       </div>
-    </div>
+      <div className="flex shadow-lg max-w-4xl mx-auto mt-40 flex-col p-5">
+        <h1 className="text-xl font-semibold">Strategy Builder</h1>
+        <input
+          type="text"
+          className="border border-gray-300 mt-2 rounded-md p-2"
+          placeholder="New Strategy"
+          value={strategyName}
+          onChange={(e) => handleInputChange("strategyName", e.target.value)}
+        />
+        {errors.strategyName && (
+          <p className="text-red-500 text-sm mt-2">{errors.strategyName}</p>
+        )}
+
+        <div
+          className="bg-[rgba(249,250,251,255)] mt-5 rounded-md p-3"
+          style={{ minHeight: "100px" }}
+        >
+          <h2 className="font-semibold">Buy Trigger Conditions</h2>
+          <div className="flex items-center mt-3">
+            <FaPlus
+              className="text-xs text-[rgba(37,99,235,255)] mr-2 cursor-pointer"
+              onClick={() => setIsAddingBuyCondition(true)}
+            />
+            <p className="text-[rgba(37,99,235,255)] cursor-pointer">
+              Add Buy Condition
+            </p>
+          </div>
+
+          {isAddingBuyCondition && (
+            <div className="mt-3 flex items-center">
+              <input
+                type="text"
+                className="border border-gray-300 rounded-md p-2 mr-2"
+                placeholder="Enter Buy Condition"
+                value={newBuyCondition}
+                onChange={(e) =>
+                  handleInputChange("newBuyCondition", e.target.value)
+                }
+              />
+              <button
+                className="bg-[rgba(37,99,235,255)] text-white rounded-md px-3 py-1"
+                onClick={handleAddBuyCondition}
+              >
+                Add
+              </button>
+            </div>
+          )}
+          {errors.buyCondition && (
+            <p className="text-red-500 text-sm mt-2">{errors.buyCondition}</p>
+          )}
+
+          <ul>
+            {buyConditions.map((condition, index) => (
+              <li key={index} className="mt-2">
+                {condition}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div
+          className="bg-[rgba(249,250,251,255)] mt-5 rounded-md p-3"
+          style={{ minHeight: "100px" }}
+        >
+          <h2 className="font-semibold">Sell Trigger Conditions</h2>
+          <div className="flex items-center mt-3">
+            <FaPlus
+              className="text-xs text-[rgba(37,99,235,255)] mr-2 cursor-pointer"
+              onClick={() => setIsAddingSellCondition(true)}
+            />
+            <p className="text-[rgba(37,99,235,255)] cursor-pointer">
+              Add Sell Condition
+            </p>
+          </div>
+
+          {isAddingSellCondition && (
+            <div className="mt-3 flex items-center">
+              <input
+                type="text"
+                className="border border-gray-300 rounded-md p-2 mr-2"
+                placeholder="Enter Sell Condition"
+                value={newSellCondition}
+                onChange={(e) =>
+                  handleInputChange("newSellCondition", e.target.value)
+                }
+              />
+              <button
+                className="bg-[rgba(37,99,235,255)] text-white rounded-md px-3 py-1"
+                onClick={handleAddSellCondition}
+              >
+                Add
+              </button>
+            </div>
+          )}
+          {errors.sellCondition && (
+            <p className="text-red-500 text-sm mt-2">{errors.sellCondition}</p>
+          )}
+
+          <ul>
+            {sellConditions.map((condition, index) => (
+              <li key={index} className="mt-2">
+                {condition}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex justify-end">
+          <button
+            className="bg-[rgba(37,99,235,255)] rounded-md mt-4 h-10 p-3 text-white flex items-center"
+            onClick={handleSaveStrategy}
+          >
+            <LuSave className="mr-2" />
+            Save Strategy
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
