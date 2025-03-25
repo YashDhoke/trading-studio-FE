@@ -1,5 +1,6 @@
 import React from "react";
 import { HiMiniChartBar } from "react-icons/hi2";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,7 +13,14 @@ const Header = () => {
         <div className="flex gap-7 items-center text-[rgba(75,85,99,255)]">
           <h2>Features</h2>
           <h2>Documentation</h2>
-          <h2>Pricing</h2>
+
+          <NavLink
+            to="/pricing"
+            className="hover:text-[rgba(80,70,229,255)] transition duration-300"
+          >
+            <h2>Pricing</h2>
+          </NavLink>
+
           <h2>Contact Us</h2>
           <h2>FAQ</h2>
           <button className="bg-[rgba(80,70,229,255)] text-white rounded-md px-4 py-2">
